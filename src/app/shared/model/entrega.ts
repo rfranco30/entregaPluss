@@ -6,7 +6,7 @@ export class Entrega {
     para: string;
     paraTel: string;
     produto: string;
-    valro: number;
+    valor: number;
     data: string;
     dataSimples: string;
     dia: string;
