@@ -13,11 +13,11 @@ declare var google;
 export class FolderPage implements OnInit {
 
   @ViewChild('map', { static: false }) mapElement: ElementRef;
-  map: any;
-  address: string;
+  public map: any;
+  public address: string;
 
-  latitude: number;
-  longitude: number;
+  public latitude: number;
+  public longitude: number;
 
   public folder;
   constructor(

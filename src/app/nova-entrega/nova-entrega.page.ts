@@ -10,7 +10,7 @@ import { EntregaService } from '../shared/services/entrega.service';
 })
 export class NovaEntregaPage implements OnInit {
 
-  private entrega: Entrega = new Entrega();
+  public entrega: Entrega = new Entrega();
   constructor(private entregaService: EntregaService) { }
 
   ngOnInit() {

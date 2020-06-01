@@ -11,10 +11,10 @@ import { DatePipe } from '@angular/common';
 })
 export class EntregasPage implements OnInit {
 
-  private filtro: Entrega = new Entrega();
-  private entrgas: Array<Entrega>;
-  private entregadores;
-  private datePipe = new DatePipe('en-US');
+  public  filtro: Entrega = new Entrega();
+  public entrgas: Array<Entrega>;
+  public entregadores;
+  public datePipe = new DatePipe('en-US');
   constructor(private entregaServic: EntregaService, private entregadorService: EntregadorService) { }
 
   ngOnInit() {
