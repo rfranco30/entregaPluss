@@ -1,0 +1,7 @@
+{
+  "name": "entrgaPlus",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

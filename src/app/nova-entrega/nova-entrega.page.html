@@ -1,0 +1,119 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nova Entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+        <ion-item>
+          <ion-label position="floating">De:</ion-label>
+          <ion-input  [(ngModel)]="entrega.de" ></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-item>
+          <ion-label position="floating">Tel:</ion-label>
+          <ion-input [(ngModel)]="entrega.deTel"  type="number"></ion-input>
+
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="7">
+        <ion-item>
+          <ion-label position="floating">Para:</ion-label>
+          <ion-input [(ngModel)]="entrega.para" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="5">
+        <ion-item>
+          <ion-label position="floating">Tel:</ion-label>
+          <ion-input [(ngModel)]="entrega.paraTel"  type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="7">
+        <ion-item>
+          <ion-label position="floating">Produto:</ion-label>
+          <ion-input [(ngModel)]="entrega.produto" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="5">
+        <ion-item>
+          <ion-label position="floating">Valor:</ion-label>
+          <ion-input [(ngModel)]="entrega.valor"  type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Data:</ion-label>
+          <ion-datetime [(ngModel)]="entrega.data" displayFormat="DD/MM/YYYY HH:mm" minuteValues="0,15,30,45"></ion-datetime>
+        </ion-item>
+ 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="9">
+        <ion-item>
+          <ion-label position="floating">Logradouro:</ion-label>
+          <ion-input [(ngModel)]="entrega.logradouro" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item size="3">
+          <ion-label position="floating">Nº:</ion-label>
+          <ion-input [(ngModel)]="entrega.numero"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+        <ion-item>
+          <ion-label position="floating">Cidade:</ion-label>
+          <ion-input [(ngModel)]="entrega.cidade"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Estado:</ion-label>
+          <ion-input [(ngModel)]="entrega.estado"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Obs:</ion-label>
+          <ion-textarea [(ngModel)]="entrega.obs"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Cartão:</ion-label>
+          <ion-toggle [(ngModel)]="entrega.cartao" color="primary"></ion-toggle>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Pagamento:</ion-label>
+          <ion-toggle [(ngModel)]="entrega.pagamento" color="primary"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="onSubmit()" color="success" expand="full">Salvar</ion-button>
+
+</ion-content>

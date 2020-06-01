@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Entregas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+        <ion-item>
+          <ion-label position="floating">Logradouro:</ion-label>
+          <ion-input [(ngModel)]="filtro.logradouro" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="5">
+        <ion-item>
+          <ion-label>Entregue:</ion-label>
+          <ion-toggle [(ngModel)]="filtro.entregue" color="primary"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Data:</ion-label>
+          <ion-datetime [(ngModel)]="filtro.data" displayFormat="DD/MM/YYYY"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating"> Horário:</ion-label>
+          <ion-datetime [(ngModel)]="filtro.hora"  displayFormat="HH:mm" minuteValues="0,15,30,45"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item style="font-size: 12px;">
+          <ion-label position="floating" >Entregador:</ion-label>
+          <ion-select [(ngModel)]="filtro.entregador">
+            <ion-select-option  value="0">Selecione</ion-select-option>
+            
+            <ion-select-option  *ngFor="let entregador of entregadores" [value]="entregador.nome">{{entregador.nome}}</ion-select-option>
+            
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating"> Produto:</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button (click)="carregarEntregas()" expand="full">Buscar</ion-button>
+  <ion-list *ngFor="let entrega of entrgas">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>
+          <p>Para: {{entrega.para}} / De: {{entrega.de}}</p>
+          <p>Produto: {{entrega.produto}} - Data: {{entrega.data | date:'HH:mm'}}</p>
+          <p>{{entrega.logradouro}} {{entrega.numero}} - {{entrega.cidade}}</p>
+          <p>{{entrega.obs}}</p>
+
+          <ion-item>
+            <ion-label >Entregador:</ion-label>
+            <ion-select [(ngModel)]="entrega.entregador" (ionChange)="alterEntregador(entrega)">
+              <ion-select-option  *ngFor="let entregador of entregadores" [value]="entregador.nome">{{entregador.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+  </ion-list>
+
+</ion-content>
